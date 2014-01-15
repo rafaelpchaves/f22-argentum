@@ -27,8 +27,8 @@ public class CandlestickFactoryTest {
 		Assert.assertEquals(40.5, candle.getAbertura(), 0.00001);
 		Assert.assertEquals(42.3, candle.getFechamento(), 0.00001);
 		Assert.assertEquals(39.8, candle.getMinimo(), 0.00001);
-		Assert.assertEquals(45.0, candle.getMaximo(), 0.00001);
-		Assert.assertEquals(16760.0, candle.getVolume(), 0.00001);
+		Assert.assertEquals(53.0, candle.getMaximo(), 0.00001);
+		Assert.assertEquals(17560.0, candle.getVolume(), 0.00001);
 	}
 
 	@Test
@@ -51,6 +51,11 @@ public class CandlestickFactoryTest {
 		
 
 	}
+	  
+//	@Test(expected = IllegalArgumentException.class)
+//      public void precoMaximoNaoPodeSerMenorQueMinimo() {
+//              new Candlestick(10, 20, 10, 30, 10000, Calendar.getInstance());
+//      }
 	
 	@Test
 	public void apenasUmaNegociacaoGeraCandleComValoresIguais() {

@@ -5,16 +5,18 @@ import java.util.Calendar;
 
 public final class Candlestick {
 
-	
 	private final double abertura;
 	private final double fechamento;
 	private final double minimo;
 	private final double maximo;
 	private final double volume;
 	private final Calendar data;
-	
+
 	public Candlestick(double abertura, double fechamento, double minimo,
 			double maximo, double volume, Calendar data) {
+		if (maximo < minimo)
+			throw new IllegalArgumentException("Maximo não pode ser menor que o minimo");
+
 		this.abertura = abertura;
 		this.fechamento = fechamento;
 		this.minimo = minimo;
@@ -23,21 +25,23 @@ public final class Candlestick {
 		this.data = data;
 	}
 
-	
-	public boolean isAlta(){
-		return this.abertura<this.fechamento;
+	public boolean isAlta() {
+		return this.abertura < this.fechamento;
 	}
-	public boolean isBaixa(){
-		return this.abertura>this.fechamento;
+
+	public boolean isBaixa() {
+		return this.abertura > this.fechamento;
 	}
-	
+
 	@Override
 	public String toString() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
-		return "Abertura "+ getAbertura()+ " Fechamento "+getFechamento()+ " Mínima "+getMinimo()+ " Máxima "+getMaximo()+" Volume "+getVolume()+" Data "+ sdf.format(getData().getTime());
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		return "Abertura " + getAbertura() + " Fechamento " + getFechamento()
+				+ " Mínima " + getMinimo() + " Máxima " + getMaximo()
+				+ " Volume " + getVolume() + " Data "
+				+ sdf.format(getData().getTime());
 	}
-	
-	
+
 	public double getAbertura() {
 		return abertura;
 	}
@@ -61,8 +65,5 @@ public final class Candlestick {
 	public Calendar getData() {
 		return data;
 	}
-	
-	
-	
-	
+
 }

@@ -36,6 +36,17 @@ public final class Negociacao {
 	public Calendar getData() {
 		  return (Calendar) this.data.clone();
 		}
+
+
+	public boolean isMesmoDia(Calendar outraData) {
+		return    data.get(Calendar.DAY_OF_MONTH) == outraData.get(Calendar.DAY_OF_MONTH);
+	}
+
+
+	public boolean mesmoDiaMasMesesDiferentesNaoSaoDoMesmoDia(Calendar mesmoMomento) {
+		
+		return data.get(Calendar.MONTH) == mesmoMomento.get(Calendar.MONTH);
+	}
 	
 	
 	
